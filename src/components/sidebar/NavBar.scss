@@ -1,0 +1,40 @@
+$breakpoint-tablet: 960px;
+
+header {
+  width: 70px;
+  height: 100vh;
+  background-color: #f4f3f3;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.nav {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+  padding: 20px 12px;
+}
+
+.nav-opened {
+  width: 180px;
+  transition: width 0.3s ease;
+}
+
+.nav-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #e2e1e1;
+  position: absolute;
+  top: 30px;
+  right: -10px;
+  cursor: pointer;
+}
+
+.nav-toggle-icon {
+  width: 20px;
+}

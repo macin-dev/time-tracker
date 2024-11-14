@@ -1,0 +1,25 @@
+$breakpoint-table: 960px;
+$breakpoint-desktop: 1440px;
+
+.navbar-list {
+  width: 44px;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.navbar-list-open {
+  width: 100%;
+  gap: 15px;
+}
+
+.navbar-list-svg {
+  width: 20px;
+}
+
+.navbar-list:hover {
+  background-color: #ccc;
+}
