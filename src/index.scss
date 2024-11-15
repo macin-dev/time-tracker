@@ -12,3 +12,9 @@
 html {
   font-size: 16px;
 }
+
+.dashboard {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 70px 1fr;
+}
