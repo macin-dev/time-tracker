@@ -1,0 +1,32 @@
+export const data = [
+  {
+    id: 12409,
+    name: "Adan Joe",
+    lastName: "John",
+    subject: "Egnlish",
+    topic: "Verb to be",
+    startClass: "10:00",
+    endClass: "12:00",
+    state: "done",
+  },
+  {
+    id: 54643,
+    name: "Jazmin Joe",
+    lastName: "John",
+    subject: "Egnlish",
+    topic: "Verb to be",
+    startClass: "10:00",
+    endClass: "12:00",
+    state: "done",
+  },
+  {
+    id: 43399,
+    name: "Adrian Joe",
+    lastName: "John",
+    subject: "Math",
+    topic: "Gemonetric",
+    startClass: "11:00",
+    endClass: "12:00",
+    state: "done",
+  },
+];
