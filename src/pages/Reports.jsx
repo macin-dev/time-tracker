@@ -1,10 +1,10 @@
 import Table from "../components/table/Table";
-import TopBar from "../components/topbar/TopBar";
+
+import "./Report.scss";
 
 const Reports = () => {
   return (
-    <section>
-      <TopBar />
+    <section className="template">
       <Table />
     </section>
   );

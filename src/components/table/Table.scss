@@ -1,7 +1,40 @@
-.table {
-  width: 90%;
+$header-table-color: #f9fafb;
+$header-table-text-color: #2c3747;
+$header-table-border-color: #e6eaed;
+
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-// .table-header {
-//   display: flex;
-// }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-width: 1px;
+  border-color: $header-table-border-color;
+  border-style: solid;
+}
+
+.table-header > tr > th {
+  background-color: $header-table-color;
+  color: $header-table-text-color;
+  text-align: start;
+  padding: 1rem;
+}
+
+.table-body td {
+  border-bottom: 1px solid $header-table-border-color;
+  padding: 1rem;
+}

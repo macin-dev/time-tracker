@@ -14,8 +14,8 @@ const columns = [
     cell: (props) => <p>{props.getValue()}</p>,
   },
   {
-    accessorKey: "lastName",
-    header: "Last Name",
+    accessorKey: "schoolLevel",
+    header: "Nivel Academico",
     cell: (props) => <p>{props.getValue()}</p>,
   },
   {
@@ -24,8 +24,19 @@ const columns = [
     cell: (props) => <p>{props.getValue()}</p>,
   },
   {
+    accessorKey: "grade",
+    header: "Grade",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  ,
+  {
     accessorKey: "topic",
     header: "Topic",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "date",
+    header: "Date",
     cell: (props) => <p>{props.getValue()}</p>,
   },
   {
@@ -49,22 +60,26 @@ const Table = () => {
 
   return (
     <table className="table">
-      {table.getHeaderGroups().map((headerGroup) => (
-        <tr key={headerGroup.id} className="table-header">
-          {headerGroup.headers.map((header) => (
-            <th key={header.id}>{header.column.columnDef.header}</th>
-          ))}
-        </tr>
-      ))}
-      {table.getRowModel().rows.map((row) => (
-        <tr key={row.id}>
-          {row.getVisibleCells().map((cell) => (
-            <td key={cell.id}>
-              {flexRender(cell.column.columnDef.cell, cell.getContext())}
-            </td>
-          ))}
-        </tr>
-      ))}
+      <thead className="table-header">
+        {table.getHeaderGroups().map((headerGroup) => (
+          <tr key={headerGroup.id} className="table-header">
+            {headerGroup.headers.map((header) => (
+              <th key={header.id}>{header.column.columnDef.header}</th>
+            ))}
+          </tr>
+        ))}
+      </thead>
+      <tbody className="table-body">
+        {table.getRowModel().rows.map((row) => (
+          <tr key={row.id}>
+            {row.getVisibleCells().map((cell) => (
+              <td key={cell.id}>
+                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
     </table>
   );
 };
