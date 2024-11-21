@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   flexRender,
   getCoreRowModel,
@@ -7,7 +8,6 @@ import {
 import { data } from "./data";
 
 import "./Table.scss";
-import { useState } from "react";
 
 const Table = () => {
   const columns = [
@@ -54,7 +54,7 @@ const Table = () => {
     },
   ];
 
-  const [columnFilters, setColumnFilters] = useState([]);
+  const [globalFilter, setGlobalFilter] = useState("");
 
   const table = useReactTable({
     data,
@@ -62,28 +62,18 @@ const Table = () => {
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     state: {
-      columnFilters,
+      globalFilter,
     },
-    onColumnFiltersChange: setColumnFilters,
+    globalFilterFn: "includesString",
+    onGlobalFilterChange: setGlobalFilter,
   });
-
-  const nameID = columnFilters.find((f) => f.id === "name")?.value || "";
-  const onFilterChange = (id, value) =>
-    setColumnFilters((prev) =>
-      prev
-        .filter((f) => f.id !== "name")
-        .concat({
-          id,
-          value,
-        })
-    );
 
   return (
     <section>
       <input
-        value={nameID}
+        value={globalFilter}
         type="text"
-        onChange={(e) => onFilterChange("name", e.target.value)}
+        onChange={(e) => setGlobalFilter(e.target.value)}
       />
       <table className="table">
         <thead className="table-header">
