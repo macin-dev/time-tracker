@@ -3,6 +3,7 @@ import {
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
+  getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 import { data } from "./data";
@@ -10,6 +11,10 @@ import { data } from "./data";
 import "./Table.scss";
 
 const Table = () => {
+  const [pagination, setPagination] = useState({
+    pageIndex: 0, // initial page index
+    pageSize: 2, // default page size
+  });
   const columns = [
     {
       accessorKey: "name",
@@ -63,9 +68,13 @@ const Table = () => {
     getFilteredRowModel: getFilteredRowModel(),
     state: {
       globalFilter,
+      pagination,
     },
     globalFilterFn: "includesString",
     onGlobalFilterChange: setGlobalFilter,
+    // pagination
+    getPaginationRowModel: getPaginationRowModel(),
+    onPaginationChange: setPagination,
   });
 
   return (
@@ -97,6 +106,28 @@ const Table = () => {
           ))}
         </tbody>
       </table>
+
+      <div>
+        <button
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          {"<<"}
+        </button>
+        <button
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          {">>"}
+        </button>
+        <span>
+          <div>Page</div>
+          <strong>
+            {table.getState().pagination.pageIndex + 1} of{" "}
+            {table.getPageCount().toLocaleString()}
+          </strong>
+        </span>
+      </div>
     </section>
   );
 };
