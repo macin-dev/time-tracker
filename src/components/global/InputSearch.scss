@@ -1,0 +1,21 @@
+$border-color: #e6eaed;
+$text-color: #2c3747;
+
+.input-search-container {
+  width: 320px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 10px;
+  border-radius: 0.75rem;
+  background-color: #fff;
+  border: 1px solid $border-color;
+}
+
+.input-search {
+  width: 100%;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  color: $text-color;
+}

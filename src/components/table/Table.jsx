@@ -9,11 +9,12 @@ import {
 import { data } from "./data";
 
 import "./Table.scss";
+import InputSearch from "../global/InputSearch";
 
 const Table = () => {
   const [pagination, setPagination] = useState({
-    pageIndex: 0, // initial page index
-    pageSize: 2, // default page size
+    pageIndex: 0,
+    pageSize: 2,
   });
   const columns = [
     {
@@ -72,17 +73,15 @@ const Table = () => {
     },
     globalFilterFn: "includesString",
     onGlobalFilterChange: setGlobalFilter,
-    // pagination
     getPaginationRowModel: getPaginationRowModel(),
     onPaginationChange: setPagination,
   });
 
   return (
     <section>
-      <input
-        value={globalFilter}
-        type="text"
-        onChange={(e) => setGlobalFilter(e.target.value)}
+      <InputSearch
+        globalFilter={globalFilter}
+        setGlobalFilter={setGlobalFilter}
       />
       <table className="table">
         <thead className="table-header">
