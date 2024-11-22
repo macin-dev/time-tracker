@@ -10,6 +10,7 @@ import { data } from "./data";
 
 import "./Table.scss";
 import InputSearch from "../global/InputSearch";
+import Button from "../global/Button";
 
 const Table = () => {
   const [pagination, setPagination] = useState({
@@ -106,26 +107,28 @@ const Table = () => {
         </tbody>
       </table>
 
-      <div>
-        <button
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          {"<<"}
-        </button>
-        <button
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          {">>"}
-        </button>
-        <span>
-          <div>Page</div>
-          <strong>
-            {table.getState().pagination.pageIndex + 1} of{" "}
-            {table.getPageCount().toLocaleString()}
-          </strong>
-        </span>
+      <div className="pagination-container">
+        <span>Show 50</span>
+        <div className="pagination-buttons-container">
+          <Button
+            onclick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+            value="<< Prev"
+          />
+          <Button
+            onclick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
+            value="Next >>"
+          />
+
+          <span className="pagination-pagecount">
+            <div>Page</div>
+            <strong>
+              {table.getState().pagination.pageIndex + 1} of{" "}
+              {table.getPageCount().toLocaleString()}
+            </strong>
+          </span>
+        </div>
       </div>
     </section>
   );

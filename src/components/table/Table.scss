@@ -38,3 +38,15 @@ td {
   border-bottom: 1px solid $header-table-border-color;
   padding: 1rem;
 }
+
+// PAGINATION STYLES
+
+.pagination-container {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination-pagecount {
+  display: flex;
+}

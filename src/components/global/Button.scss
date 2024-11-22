@@ -1,0 +1,14 @@
+$border-color: #e6eaed;
+
+.pagination-btn {
+  background-color: #fff;
+  padding: 12px 18px;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+}
+
+.pagination-buttons-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
