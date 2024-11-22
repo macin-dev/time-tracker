@@ -4,6 +4,7 @@ import {
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
+  getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 import { data } from "./data";
@@ -15,13 +16,14 @@ import Button from "../global/Button";
 const Table = () => {
   const [pagination, setPagination] = useState({
     pageIndex: 0,
-    pageSize: 2,
+    pageSize: 3,
   });
   const columns = [
     {
       accessorKey: "name",
       header: "Name",
       cell: (props) => <p>{props.getValue()}</p>,
+      sortingFn: "alphanumeric",
     },
     {
       accessorKey: "schoolLevel",
@@ -62,6 +64,7 @@ const Table = () => {
   ];
 
   const [globalFilter, setGlobalFilter] = useState("");
+  const [sorting, setSorting] = useState([]);
 
   const table = useReactTable({
     data,
@@ -71,15 +74,19 @@ const Table = () => {
     state: {
       globalFilter,
       pagination,
+      sorting,
     },
     globalFilterFn: "includesString",
     onGlobalFilterChange: setGlobalFilter,
     getPaginationRowModel: getPaginationRowModel(),
     onPaginationChange: setPagination,
+    // Sorting
+    getSortedRowModel: getSortedRowModel(),
+    onSortingChange: setSorting,
   });
 
   return (
-    <section>
+    <section className="table-container">
       <InputSearch
         globalFilter={globalFilter}
         setGlobalFilter={setGlobalFilter}
@@ -89,7 +96,21 @@ const Table = () => {
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id} className="table-header">
               {headerGroup.headers.map((header) => (
-                <th key={header.id}>{header.column.columnDef.header}</th>
+                <th key={header.id} className="table-th">
+                  <span className="table-header-cell">
+                    {header.column.columnDef.header}
+                    <div
+                      className={
+                        header.column.getCanSort()
+                          ? "cursor-pointer select-none"
+                          : ""
+                      }
+                      onClick={header.column.getToggleSortingHandler()}
+                    >
+                      <img src="/src/assets/sort-fill.svg" alt="sorting icon" />
+                    </div>
+                  </span>
+                </th>
               ))}
             </tr>
           ))}
