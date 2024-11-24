@@ -9,7 +9,7 @@ const InputSearch = ({ globalFilter, setGlobalFilter }) => {
         alt="search icon"
       />
       <input
-        value={globalFilter}
+        value={globalFilter ?? ""}
         type="text"
         onChange={(e) => setGlobalFilter(e.target.value)}
         className="input-search"

@@ -14,6 +14,8 @@ import InputSearch from "../global/InputSearch";
 import Button from "../global/Button";
 
 const Table = () => {
+  const [globalFilter, setGlobalFilter] = useState("");
+  const [sorting, setSorting] = useState([]);
   const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 3,
@@ -63,27 +65,27 @@ const Table = () => {
     },
   ];
 
-  const [globalFilter, setGlobalFilter] = useState("");
-  const [sorting, setSorting] = useState([]);
-
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
     state: {
       globalFilter,
       pagination,
       sorting,
     },
-    globalFilterFn: "includesString",
-    onGlobalFilterChange: setGlobalFilter,
-    getPaginationRowModel: getPaginationRowModel(),
+    // Pagination
     onPaginationChange: setPagination,
+    getPaginationRowModel: getPaginationRowModel(),
+    // Global filtering
+    onGlobalFilterChange: setGlobalFilter,
+    getFilteredRowModel: getFilteredRowModel(),
     // Sorting
-    getSortedRowModel: getSortedRowModel(),
     onSortingChange: setSorting,
+    getSortedRowModel: getSortedRowModel(),
   });
+
+  console.log(sorting);
 
   return (
     <section className="table-container">
@@ -97,19 +99,15 @@ const Table = () => {
             <tr key={headerGroup.id} className="table-header">
               {headerGroup.headers.map((header) => (
                 <th key={header.id} className="table-th">
-                  <span className="table-header-cell">
+                  <div
+                    className={
+                      header.column.getCanSort() ? "header-sorting" : ""
+                    }
+                    onClick={header.column.getToggleSortingHandler()}
+                  >
                     {header.column.columnDef.header}
-                    <div
-                      className={
-                        header.column.getCanSort()
-                          ? "cursor-pointer select-none"
-                          : ""
-                      }
-                      onClick={header.column.getToggleSortingHandler()}
-                    >
-                      <img src="/src/assets/sort-fill.svg" alt="sorting icon" />
-                    </div>
-                  </span>
+                    <img src="/src/assets/sort-fill.svg" alt="sorting icon" />
+                  </div>
                 </th>
               ))}
             </tr>
