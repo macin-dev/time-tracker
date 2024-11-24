@@ -11,7 +11,7 @@ import { data } from "./data";
 
 import "./Table.scss";
 import InputSearch from "../global/InputSearch";
-import Button from "../global/Button";
+import Pagination from "../pagination/Pagination";
 
 const Table = () => {
   const [globalFilter, setGlobalFilter] = useState("");
@@ -85,8 +85,6 @@ const Table = () => {
     getSortedRowModel: getSortedRowModel(),
   });
 
-  console.log(sorting);
-
   return (
     <section className="table-container">
       <InputSearch
@@ -125,30 +123,7 @@ const Table = () => {
           ))}
         </tbody>
       </table>
-
-      <div className="pagination-container">
-        <span>Show 50</span>
-        <div className="pagination-buttons-container">
-          <Button
-            onclick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
-            value="<< Prev"
-          />
-          <Button
-            onclick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
-            value="Next >>"
-          />
-
-          <span className="pagination-pagecount">
-            <div>Page</div>
-            <strong>
-              {table.getState().pagination.pageIndex + 1} of{" "}
-              {table.getPageCount().toLocaleString()}
-            </strong>
-          </span>
-        </div>
-      </div>
+      <Pagination table={table} onPagination={setPagination} />
     </section>
   );
 };

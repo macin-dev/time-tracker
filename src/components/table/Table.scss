@@ -34,11 +34,16 @@ td {
   background-color: #fff;
 }
 
+.table-header {
+  border-bottom: 1px solid $header-table-border-color;
+}
+
 .table-header > tr > th {
   background-color: $header-table-color;
   color: $header-table-text-color;
   text-align: start;
   padding: 1rem;
+  font-weight: 600;
 }
 
 .header-sorting {
@@ -52,16 +57,4 @@ td {
 .table-body td {
   border-bottom: 1px solid $header-table-border-color;
   padding: 1rem;
-}
-
-// PAGINATION STYLES
-
-.pagination-container {
-  background-color: #fff;
-  display: flex;
-  justify-content: space-between;
-}
-
-.pagination-pagecount {
-  display: flex;
 }
