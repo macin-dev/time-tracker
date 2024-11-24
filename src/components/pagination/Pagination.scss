@@ -1,9 +1,13 @@
+$tablet-breakpoint: 960px;
 $border-color: #e6eaed;
 
 .pagination-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  width: max-content;
+  justify-content: start;
+  gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 .pagination-countpage {
@@ -12,8 +16,21 @@ $border-color: #e6eaed;
   gap: 0.75rem;
 }
 
+.pagination-pagecount {
+  display: flex;
+  align-items: center;
+}
+
 .pagination-countpage__select {
   border: 1px solid $border-color;
   padding: 0.75rem 1.125rem;
   border-radius: 0.5rem;
+}
+
+// Media queries
+@media screen and (min-width: $tablet-breakpoint) {
+  .pagination-container {
+    justify-content: space-between;
+    width: 100%;
+  }
 }

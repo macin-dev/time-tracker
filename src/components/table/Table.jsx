@@ -95,39 +95,41 @@ const Table = () => {
         />
         <ButtonFilter />
       </div>
-      <table className="table">
-        <thead className="table-header">
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id} className="table-header">
-              {headerGroup.headers.map((header) => (
-                <th key={header.id} className="table-th">
-                  <div
-                    className={
-                      header.column.getCanSort() ? "header-sorting" : ""
-                    }
-                    onClick={header.column.getToggleSortingHandler()}
-                  >
-                    {header.column.columnDef.header}
-                    <img src="/src/assets/sort-fill.svg" alt="sorting icon" />
-                  </div>
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody className="table-body">
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <Pagination table={table} onPagination={setPagination} />
+      <div className="table-overflow">
+        <table className="table">
+          <thead className="table-header">
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id} className="table-header">
+                {headerGroup.headers.map((header) => (
+                  <th key={header.id} className="table-th">
+                    <div
+                      className={
+                        header.column.getCanSort() ? "header-sorting" : ""
+                      }
+                      onClick={header.column.getToggleSortingHandler()}
+                    >
+                      {header.column.columnDef.header}
+                      <img src="/src/assets/sort-fill.svg" alt="sorting icon" />
+                    </div>
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody className="table-body">
+            {table.getRowModel().rows.map((row) => (
+              <tr key={row.id}>
+                {row.getVisibleCells().map((cell) => (
+                  <td key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <Pagination table={table} onPagination={setPagination} />
+      </div>
     </section>
   );
 };
