@@ -1,0 +1,26 @@
+$primary-color: #1e1738;
+$background-hover: #f4f4f4;
+
+.filter-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid $primary-color;
+  border-radius: 0.75rem;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  background-color: $background-hover;
+}
+
+.filter-btn > span {
+  color: $primary-color;
+}
+
+.filter-btn__icon {
+  width: 20px;
+}

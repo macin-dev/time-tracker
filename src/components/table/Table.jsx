@@ -12,6 +12,7 @@ import { data } from "./data";
 import "./Table.scss";
 import InputSearch from "../global/InputSearch";
 import Pagination from "../pagination/Pagination";
+import ButtonFilter from "./ButtonFilter";
 
 const Table = () => {
   const [globalFilter, setGlobalFilter] = useState("");
@@ -87,10 +88,13 @@ const Table = () => {
 
   return (
     <section className="table-container">
-      <InputSearch
-        globalFilter={globalFilter}
-        setGlobalFilter={setGlobalFilter}
-      />
+      <div className="header-search">
+        <InputSearch
+          globalFilter={globalFilter}
+          setGlobalFilter={setGlobalFilter}
+        />
+        <ButtonFilter />
+      </div>
       <table className="table">
         <thead className="table-header">
           {table.getHeaderGroups().map((headerGroup) => (
