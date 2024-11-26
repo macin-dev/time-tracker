@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # working on
-src/components/filter
+src/components/filter/
