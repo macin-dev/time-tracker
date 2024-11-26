@@ -1,6 +1,7 @@
 import {
   createColumnHelper,
   getCoreRowModel,
+  getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
@@ -12,11 +13,13 @@ import Pagination from "../../components/pagination/Pagination";
 import Table from "../../components/table/Table";
 import TableContainer from "../TableContainer";
 import PageContainer from "../PageContainer";
+import InputSearch from "../../components/global/InputSearch";
 
 // Create a column helper object
 const columnHelper = createColumnHelper();
 
 const UserTable = () => {
+  const [globalFilter, setGlobalFilter] = useState("");
   const [sorting, setSorting] = useState([]);
   const [pagination, setPagination] = useState({
     pageIndex: 0,
@@ -65,6 +68,7 @@ const UserTable = () => {
     state: {
       sorting,
       pagination,
+      globalFilter,
     },
     // sorting
     onSortingChange: setSorting,
@@ -72,11 +76,18 @@ const UserTable = () => {
     // Pagination
     onPaginationChange: setPagination,
     getPaginationRowModel: getPaginationRowModel(),
+    // Global filter functionality
+    onGlobalFilterChange: setGlobalFilter,
+    getFilteredRowModel: getFilteredRowModel(),
   });
 
   return (
     <PageContainer>
       <TableContainer>
+        <InputSearch
+          globalFilter={globalFilter}
+          setGlobalFilter={setGlobalFilter}
+        />
         <Table table={table} />
         <Pagination table={table} onPagination={setPagination} />
       </TableContainer>

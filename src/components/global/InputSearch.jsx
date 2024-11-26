@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import "./InputSearch.scss";
 
 const InputSearch = ({ globalFilter, setGlobalFilter }) => {
@@ -20,3 +21,8 @@ const InputSearch = ({ globalFilter, setGlobalFilter }) => {
 };
 
 export default InputSearch;
+
+InputSearch.propTypes = {
+  globalFilter: PropTypes.string,
+  setGlobalFilter: PropTypes.func,
+};

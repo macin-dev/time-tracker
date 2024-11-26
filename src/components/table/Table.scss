@@ -27,14 +27,6 @@ td {
   overflow: hidden;
 }
 
-.table-overflow {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  width: 100%;
-  overflow: auto;
-}
-
 .table {
   width: 100%;
   border-collapse: collapse;
