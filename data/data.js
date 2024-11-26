@@ -2,7 +2,7 @@ export const data = [
   {
     _id: "67457b45252343c131d97838",
     iduser: "b63a32aa-adb1-4097-8f5d-4d7c4fc48135",
-    isActive: false,
+    isActive: null,
     name: "Angelique",
     lastName: "Green",
     rol: "Docente",
@@ -40,7 +40,7 @@ export const data = [
   {
     _id: "67457b45a878506937b26233",
     iduser: "a0df2387-a504-4bfc-a57e-ed4340de9dd4",
-    isActive: false,
+    isActive: "true",
     name: "Effie",
     lastName: "Blevins",
     rol: "Docente",
@@ -230,7 +230,7 @@ export const data = [
   {
     _id: "67457b457fab49696dd96bc0",
     iduser: "830a9751-7644-413b-85cf-bc08a74183ff",
-    isActive: true,
+    isActive: null,
     name: "Kristy",
     lastName: "Frazier",
     rol: "Docente",

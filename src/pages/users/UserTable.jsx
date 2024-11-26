@@ -14,6 +14,7 @@ import Table from "../../components/table/Table";
 import TableContainer from "../TableContainer";
 import PageContainer from "../PageContainer";
 import InputSearch from "../../components/global/InputSearch";
+import StateBadge from "../../components/global/StateBadge";
 
 // Create a column helper object
 const columnHelper = createColumnHelper();
@@ -51,6 +52,26 @@ const UserTable = () => {
           footer: (props) => props.column.id,
         }),
       ],
+    }),
+    columnHelper.display({
+      id: "isActive",
+      header: "State",
+      cell: (info) => {
+        const userState = info.row.original.isActive;
+
+        if (userState === null)
+          return (
+            <StateBadge colorClass="state-badge__pending" text="Pending" />
+          );
+
+        if (!userState)
+          return (
+            <StateBadge colorClass="state-badge__inactive" text="Inactive" />
+          );
+
+        if (userState)
+          return <StateBadge colorClass="state-badge__active" text="Active" />;
+      },
     }),
     columnHelper.accessor("email", {
       cell: (info) => info.getValue(),

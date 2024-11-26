@@ -1,0 +1,30 @@
+$badge-active-border: #17b05c;
+$badge-active-bg: #17b05c1a;
+
+$badge-inactive-border: #f07878;
+$badge-inactive-bg: #f078781a;
+
+$badge-pending-border: #fcc45e;
+$badge-pending-bg: #fcc45e1a;
+
+.state-badge {
+  padding: 8px 12px;
+  border-radius: 0.5rem;
+  color: $badge-active-border;
+}
+.state-badge__active {
+  background-color: $badge-active-bg;
+  border: 1px solid $badge-active-border;
+}
+
+.state-badge__inactive {
+  background-color: $badge-inactive-bg;
+  border: 1px solid $badge-inactive-border;
+  color: $badge-inactive-border;
+}
+
+.state-badge__pending {
+  background-color: $badge-pending-bg;
+  border: 1px solid $badge-pending-border;
+  color: $badge-pending-border;
+}
