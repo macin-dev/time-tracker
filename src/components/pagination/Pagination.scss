@@ -2,9 +2,11 @@ $tablet-breakpoint: 960px;
 $border-color: #e6eaed;
 
 .pagination-container {
+  background-color: #fff;
   display: flex;
   align-items: center;
-  width: max-content;
+  min-width: min-content;
+  max-width: 100%;
   justify-content: start;
   gap: 0.75rem;
   flex-shrink: 0;

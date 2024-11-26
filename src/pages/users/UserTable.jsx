@@ -1,17 +1,34 @@
 import {
   createColumnHelper,
-  flexRender,
   getCoreRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { data } from "./data";
+import { data } from "../../../data/data";
+import { useState } from "react";
+import Pagination from "../../components/pagination/Pagination";
+
+import Table from "../../components/table/Table";
+import TableContainer from "../TableContainer";
+import PageContainer from "../PageContainer";
 
 // Create a column helper object
 const columnHelper = createColumnHelper();
 
 const UserTable = () => {
+  const [sorting, setSorting] = useState([]);
+  const [pagination, setPagination] = useState({
+    pageIndex: 0,
+    pageSize: 5,
+  });
+
   // Columns defs
   const columns = [
+    columnHelper.accessor("iduser", {
+      header: "User Folios",
+      cell: (info) => info.getValue(),
+    }),
     // Grioup Column
     columnHelper.group({
       header: "Full Name",
@@ -45,40 +62,25 @@ const UserTable = () => {
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    state: {
+      sorting,
+      pagination,
+    },
+    // sorting
+    onSortingChange: setSorting,
+    getSortedRowModel: getSortedRowModel(),
+    // Pagination
+    onPaginationChange: setPagination,
+    getPaginationRowModel: getPaginationRowModel(),
   });
 
   return (
-    <main>
-      <table className="table">
-        <thead className="table-header">
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th key={header.id} colSpan={header.colSpan}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody className="table-body">
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </main>
+    <PageContainer>
+      <TableContainer>
+        <Table table={table} />
+        <Pagination table={table} onPagination={setPagination} />
+      </TableContainer>
+    </PageContainer>
   );
 };
 

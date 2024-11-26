@@ -8,15 +8,15 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Reports from "./pages/Reports.jsx";
-import Users from "./pages/users/Users.jsx";
+import UserTable from "./pages/users/UserTable.jsx";
+import Clasroom from "./pages/classroom/Clasroom.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<App />}>
-        <Route index element={<Reports />} />
-        <Route path="users" element={<Users />} />
+        <Route path="/clasroom" element={<Clasroom />} />
+        <Route path="users" element={<UserTable />} />
       </Route>
     </>
   )
