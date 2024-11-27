@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import UserTable from "./pages/users/UserTable.jsx";
 import Clasroom from "./pages/classroom/Clasroom.jsx";
+import Checker from "./pages/checador/Checker.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
         <Route path="/clasroom" element={<Clasroom />} />
         <Route path="users" element={<UserTable />} />
       </Route>
+      <Route path="checador" element={<Checker />} />
     </>
   )
 );
