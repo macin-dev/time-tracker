@@ -1,0 +1,37 @@
+$border-color: #d4d4d4;
+
+.card-work-hours {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid $border-color;
+  padding: 1rem;
+}
+
+.card-work-hours__general {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+}
+
+.card-work-hours__date {
+  color: #7b7a7a;
+}
+
+.card-work-hours__total {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.total-hours__title {
+  color: #7b7a7a;
+}
+
+.total-hours {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}

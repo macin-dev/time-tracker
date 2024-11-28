@@ -1,0 +1,99 @@
+// Responsiveness
+$mobile-breakpoint: 375px;
+$tablet-breakpoint: 960px;
+$desktop-breakpoint: 1440px;
+
+$bg-app: #fef9eb;
+$main-color: #f7c343;
+
+.app-work {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: $mobile-breakpoint;
+  background-color: $bg-app;
+  padding: 1rem;
+}
+
+.app-work__tw {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.app-work__header {
+  font-size: 1.5rem;
+}
+
+.app-work__text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+// Buttton Style
+.clock-in__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $main-color;
+  border-radius: 2px;
+  padding: 0.75rem;
+  color: #1d1d1d;
+  border: none;
+  font-size: 1.2rem;
+}
+
+// Card Working Hours
+.card-working-hours {
+  background-color: #fff;
+  border: 1px solid #d4d4d4;
+  padding: 1rem 0;
+}
+
+.card-working-hours > h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0 1rem 1rem 1rem;
+}
+
+.subcard-working-hours {
+  display: flex;
+}
+
+.subcard-woring-hours__today {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.5rem;
+  position: relative;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.subcard-woring-hours__today::after {
+  content: "";
+  width: 2px;
+  background-color: #ccc;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.subcard-woring-hours__total {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.5rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.subcard-text {
+  font-size: 1.1rem;
+  color: #787777;
+}
+
+.subcard-hours {
+  font-size: 1.2rem;
+}
