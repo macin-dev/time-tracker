@@ -7,10 +7,12 @@ $bg-app: #fef9eb;
 $main-color: #f7c343;
 
 .app-work {
+  min-width: $mobile-breakpoint;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: start;
   gap: 20px;
-  min-width: $mobile-breakpoint;
   background-color: $bg-app;
   padding: 1rem;
 }
@@ -31,16 +33,9 @@ $main-color: #f7c343;
 }
 
 // Buttton Style
-.clock-in__btn {
+.app-work__buttons {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $main-color;
-  border-radius: 2px;
-  padding: 0.75rem;
-  color: #1d1d1d;
-  border: none;
-  font-size: 1.2rem;
+  gap: 1rem;
 }
 
 // Card Working Hours

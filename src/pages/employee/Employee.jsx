@@ -1,17 +1,50 @@
+import { useState } from "react";
 import CardWorkedHours from "../../components/cardworkedhours/CardWorkedHours";
 import "./Employee.scss";
+import Button from "./Button";
+import Timer from "./Timer";
 
 const Employee = () => {
+  const [clockIn, setClockIn] = useState(false);
+
   return (
     <section className="app-work">
       <div className="app-work__header">Company Logo</div>
 
       <div className="app-work__text">
-        <span className="app-wor__user">Good Morning User</span>
-        <span className="app-work__tw">Lets get to work!</span>
+        {clockIn ? (
+          <>
+            <span className="app-work__tw">You are clocked in</span>
+            <Timer />
+          </>
+        ) : (
+          <>
+            <span className="app-wor__user">Good Morning User</span>
+            <span className="app-work__tw">Lets get to work!</span>
+          </>
+        )}
       </div>
 
-      <button className="clock-in__btn">Clock in</button>
+      {clockIn ? (
+        <div className="app-work__buttons">
+          <Button type="primary-type" text="Take a break" />
+          <Button
+            onFunction={setClockIn}
+            state={clockIn}
+            type="secondary-type"
+            text="Clock out"
+          />
+        </div>
+      ) : (
+        <div>
+          <Button
+            onFunction={setClockIn}
+            state={clockIn}
+            type="primary-type"
+            text="Clock In"
+          />
+        </div>
+      )}
 
       <section className="card-working-hours">
         <h2>Total working hour</h2>
