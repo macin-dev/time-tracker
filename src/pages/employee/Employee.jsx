@@ -4,6 +4,7 @@ import "./Employee.scss";
 import Button from "./Button";
 import Timer from "./Timer";
 import MenuBar from "../../components/menubar/MenuBar";
+import CurrentPeriodTitle from "../../components/cardworkedhours/CurrentPeriodTitle";
 
 const Employee = () => {
   const [clockIn, setClockIn] = useState(false);
@@ -60,7 +61,7 @@ const Employee = () => {
           </div>
         </div>
       </section>
-
+      <CurrentPeriodTitle />
       <CardWorkedHours />
       <MenuBar />
     </section>
