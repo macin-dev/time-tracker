@@ -17,11 +17,13 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<App />}>
-        <Route path="/clasroom" element={<Clasroom />} />
+        <Route path="/class" element={<Clasroom />} />
         <Route path="users" element={<UserTable />} />
       </Route>
       <Route path="checador" element={<Checker />} />
-      <Route path="checker" element={<Employee />} />
+      <Route path="workedHours" element={<Employee />} />
+      <Route path="classroom" element={<Employee />} />
+      <Route path="account" element={<Employee />} />
     </>
   )
 );

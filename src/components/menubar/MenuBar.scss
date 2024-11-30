@@ -1,0 +1,38 @@
+$color-text: #787777;
+$primary-color: #f7c343;
+
+.user-menu {
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+}
+
+.menu-lists {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.5rem;
+  color: $color-text;
+}
+
+.menu-lists > a {
+  text-decoration: none;
+  color: $color-text;
+}
+
+.list-active {
+  color: #1d1d1d;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  cursor: pointer;
+}

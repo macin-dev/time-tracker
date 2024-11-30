@@ -3,6 +3,7 @@ import CardWorkedHours from "../../components/cardworkedhours/CardWorkedHours";
 import "./Employee.scss";
 import Button from "./Button";
 import Timer from "./Timer";
+import MenuBar from "../../components/menubar/MenuBar";
 
 const Employee = () => {
   const [clockIn, setClockIn] = useState(false);
@@ -61,6 +62,7 @@ const Employee = () => {
       </section>
 
       <CardWorkedHours />
+      <MenuBar />
     </section>
   );
 };
