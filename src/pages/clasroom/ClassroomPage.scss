@@ -1,0 +1,16 @@
+$border-color: #d4d4d4;
+$main-color: #787777;
+
+.classroom {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.classroom-header {
+  width: 100%;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  border: 1px solid $border-color;
+}

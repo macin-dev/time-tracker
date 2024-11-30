@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import "./CardSubject.scss";
 
 const CardSubject = ({ subject, startClass, endClass }) => {
   return (
-    <aside className="card-subject">
+    <Link to={`/subject/${subject} `} className="card-subject">
       <div className="card-subject-container">
         <span className="card-subject-container__logo">
           <img src="/src/assets/book.svg" alt="book icon" />
@@ -19,7 +20,7 @@ const CardSubject = ({ subject, startClass, endClass }) => {
           </span>
         </div>
       </div>
-    </aside>
+    </Link>
   );
 };
 
