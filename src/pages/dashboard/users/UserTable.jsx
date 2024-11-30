@@ -6,15 +6,15 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { data } from "../../../data/data";
+import { data } from "../../../../data/data";
 import { useState } from "react";
-import Pagination from "../../components/pagination/Pagination";
+import Pagination from "../../../components/pagination/Pagination";
 
-import Table from "../../components/table/Table";
-import TableContainer from "../TableContainer";
-import PageContainer from "../PageContainer";
-import InputSearch from "../../components/global/InputSearch";
-import StateBadge from "../../components/global/StateBadge";
+import Table from "../../../components/table/Table";
+import TableContainer from "../../TableContainer";
+import PageContainer from "../../PageContainer";
+import InputSearch from "../../../components/global/InputSearch";
+import StateBadge from "../../../components/global/StateBadge";
 
 // Create a column helper object
 const columnHelper = createColumnHelper();

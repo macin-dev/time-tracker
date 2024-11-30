@@ -6,13 +6,13 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import Pagination from "../../components/pagination/Pagination";
-import Table from "../../components/table/Table";
-import PageContainer from "../PageContainer";
-import TableContainer from "../TableContainer";
-import { data } from "../../components/table/data";
+import Pagination from "../../../components/pagination/Pagination";
+import Table from "../../../components/table/Table";
+import PageContainer from "../../PageContainer";
+import TableContainer from "../../TableContainer";
+import { data } from "../../../components/table/data";
 import { useState } from "react";
-import InputSearch from "../../components/global/InputSearch";
+import InputSearch from "../../../components/global/InputSearch";
 
 const Clasroom = () => {
   const [globalFilter, setglobalFilter] = useState("");

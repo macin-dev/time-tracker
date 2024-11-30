@@ -3,16 +3,13 @@ import CardWorkedHours from "../../components/cardworkedhours/CardWorkedHours";
 import "./Employee.scss";
 import Button from "./Button";
 import Timer from "./Timer";
-import MenuBar from "../../components/menubar/MenuBar";
 import CurrentPeriodTitle from "../../components/cardworkedhours/CurrentPeriodTitle";
 
 const Employee = () => {
   const [clockIn, setClockIn] = useState(false);
 
   return (
-    <section className="app-work">
-      <div className="app-work__header">Company Logo</div>
-
+    <section className="main">
       <div className="app-work__text">
         {clockIn ? (
           <>
@@ -63,7 +60,6 @@ const Employee = () => {
       </section>
       <CurrentPeriodTitle />
       <CardWorkedHours />
-      <MenuBar />
     </section>
   );
 };

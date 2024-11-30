@@ -8,22 +8,26 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import UserTable from "./pages/users/UserTable.jsx";
-import Clasroom from "./pages/classroom/Clasroom.jsx";
-import Checker from "./pages/checador/Checker.jsx";
+import UserTable from "./pages/dashboard/users/UserTable.jsx";
+import Clasroom from "./pages/dashboard/classroom/Clasroom.jsx";
 import Employee from "./pages/employee/Employee.jsx";
+import ClasroomPage from "./pages/clasroom/ClasroomPage.jsx";
+import PageContainer from "./pages/user/PageContainer.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<App />}>
-        <Route path="/class" element={<Clasroom />} />
+      {/* Users paths */}
+      <Route path="/" element={<PageContainer />}>
+        <Route path="workedHours" element={<Employee />} />
+        <Route path="classroom" element={<ClasroomPage />} />
+        <Route path="account" element={<Employee />} />
+      </Route>
+      {/* Admin path */}
+      <Route path="/dashboard" element={<App />}>
+        <Route path="classroom" element={<Clasroom />} />
         <Route path="users" element={<UserTable />} />
       </Route>
-      <Route path="checador" element={<Checker />} />
-      <Route path="workedHours" element={<Employee />} />
-      <Route path="classroom" element={<Employee />} />
-      <Route path="account" element={<Employee />} />
     </>
   )
 );

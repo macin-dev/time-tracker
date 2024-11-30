@@ -1,0 +1,18 @@
+// Responsiveness
+$mobile-breakpoint: 375px;
+$tablet-breakpoint: 960px;
+$desktop-breakpoint: 1440px;
+$bg-app: #fef9eb;
+$main-color: #f7c343;
+
+.page-container {
+  min-width: $mobile-breakpoint;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 20px;
+  background-color: $bg-app;
+  padding: 1rem;
+  position: relative;
+}

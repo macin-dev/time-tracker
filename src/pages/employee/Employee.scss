@@ -6,16 +6,12 @@ $desktop-breakpoint: 1440px;
 $bg-app: #fef9eb;
 $main-color: #f7c343;
 
-.app-work {
-  min-width: $mobile-breakpoint;
-  height: 100vh;
+.main {
   display: flex;
   flex-direction: column;
   justify-content: start;
   gap: 20px;
   background-color: $bg-app;
-  padding: 1rem;
-  position: relative;
 }
 
 .app-work__tw {
